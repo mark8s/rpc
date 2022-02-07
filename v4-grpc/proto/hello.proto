@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package hello;
+
+// 定义go生成后的包名，会以proto文件所在目录为基准生成
+option go_package = "/hello";
+
+// 定义入参
+message Request {
+    string name = 1;
+}
+// 定义返回
+message Response {
+    string result = 1;
+}
+
+// 定义接口
+service UserService {
+    rpc Say(Request) returns (Response);
+}
+
